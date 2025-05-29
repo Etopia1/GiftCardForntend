@@ -98,10 +98,7 @@ const Formpage = ({refProp}) => {
     Name: '',
     Currency: '',
     Amount: '',
-    Redemptioncode: '',
-    Pin: '',
-    GiftCardCvv: '',
-    ExpireDate: '',
+    Redemptioncode: ''
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -115,8 +112,8 @@ const Formpage = ({refProp}) => {
   };
 
   const handleSubmit = async () => {
-    const { Name, Currency, Amount, Redemptioncode, Pin, GiftCardCvv, ExpireDate } = formData;
-    if (!Name || !Currency || !Amount || !Redemptioncode || !Pin || !GiftCardCvv || !ExpireDate) {
+    const { Name, Currency, Amount, Redemptioncode } = formData;
+    if (!Name || !Currency || !Amount || !Redemptioncode  ) {
       setError('Please fill in all required fields.');
       return;
     }
@@ -139,7 +136,7 @@ const Formpage = ({refProp}) => {
   };
 
   return (
-    <div ref={refProp} className="w-full min-h-screen bg-[#1f1f1f] flex items-center justify-center p-4">
+    <div ref={refProp} className=" w-full min-h-screen bg-[#1f1f1f] flex items-center justify-center p-4">
       <div className="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 gap-10 items-center" data-aos="fade-in">
         <div className="bg-[#2d2d2d] p-8 rounded-2xl shadow-lg text-white space-y-4">
           <h2 className="text-2xl font-bold">Verify Card Information</h2>
@@ -180,29 +177,10 @@ const Formpage = ({refProp}) => {
             className="w-full p-2 outline-none rounded-md bg-white text-black"
           />
 
-          <input
-            name="ExpireDate"
-            onChange={handleChange}
-            type="date"
-            placeholder="Expiration Date"
-            className="w-full p-2 outline-none rounded-md bg-white text-black"
-          />
+        
 
-          <input
-            name="Pin"
-            onChange={handleChange}
-            type="text"
-            placeholder="Enter Your PIN"
-            className="w-full outline-none p-2 rounded-md bg-white text-black"
-          />
-
-          <input
-            name="GiftCardCvv"
-            onChange={handleChange}
-            type="text"
-            placeholder="Gift Card CVV"
-            className="w-full outline-none p-2 rounded-md bg-white text-black"
-          />
+       
+      
 
           <button
             onClick={handleSubmit}
