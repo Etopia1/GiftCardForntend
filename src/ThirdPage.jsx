@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const ThirdPage = () => {
+const ThirdPage = ({onVerifyClick}) => {
   return (
     <div className="w-full bg-gradient-to-b from-[#cad8e3] to-[#e3ecf4] py-20 space-y-32">
 
@@ -18,7 +18,7 @@ const ThirdPage = () => {
             An Effective Method to Validate All Card Data
           </h2>
           <p className="text-lg md:text-xl text-gray-700">
-            Giftlycheck offers a fast and reliable framework to verify your cards. From physical validation to app activation,
+            Giftify offers a fast and reliable framework to verify your cards. From physical validation to app activation,
             our smart algorithm ensures speed, security, and efficiency at every step.
           </p>
           <button className="mt-2 bg-black text-white text-lg font-medium px-6 py-3 rounded-full shadow-md hover:bg-gray-900 transition duration-300">
@@ -57,7 +57,7 @@ const ThirdPage = () => {
             Our emergency support is just a click away. Whether it’s a last-minute issue or critical card error,
             we’ve got you covered.
           </p>
-          <button className="mt-2 bg-black text-white text-lg font-medium px-6 py-3 rounded-full shadow-md hover:bg-gray-900 transition duration-300">
+          <button   onClick={onVerifyClick} className="mt-2 bg-black text-white text-lg font-medium px-6 py-3 rounded-full shadow-md hover:bg-gray-900 transition duration-300">
             Verify Now
           </button>
         </motion.div>

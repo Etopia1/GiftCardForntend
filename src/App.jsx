@@ -9,19 +9,23 @@ import Footer from "./Footer";
 
 function App() {
   const formRef = useRef(null); // 🔵 create a ref
+  const formRef2 = useRef(null); // 🔵 create a ref
 
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+  const scrollToForm2 = () => {
+    formRef2.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <div className="flex flex-col w-full">
-      <HomePage onVerifyClick={scrollToForm}  />
+      <HomePage onVerifyClick2={scrollToForm2} onVerifyClick={scrollToForm}  />
       <FirstPage onVerifyClick={scrollToForm} /> {/* pass the scroll function */}
       <SecondPage />
       <Formpage refProp={formRef} /> {/* pass the ref */}
-      <ThirdPage />
-	  <ReviewSection/>
+      <ThirdPage onVerifyClick={scrollToForm}/>
+	  <ReviewSection refProp={formRef2}/>
 	  <Footer/>
     </div>
   );

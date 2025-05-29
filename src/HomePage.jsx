@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react'; // optional: lucide-react for icons
 
-const HomePage = ({onVerifyClick}) => {
+const HomePage = ({onVerifyClick, onVerifyClick2}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-black text-white w-full shadow-md fixed top-o z-50">
+    <nav className="bg-black text-white w-full shadow-md fixed top-0  z-50">
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-3">
           <img
             src="https://i.pinimg.com/736x/bd/b9/63/bdb9632228612368442d049925ce5dcc.jpg" // replace with your logo path
-            alt="Giftlycheck"
+            alt="Giftify"
             className="h-10 w-auto"
           />
         </div>
@@ -22,7 +22,7 @@ const HomePage = ({onVerifyClick}) => {
             <a href="#home" className="hover:text-gray-300 transition">Home</a>
           </li>
           <li>
-            <a href="#reviews" className="hover:text-gray-300 transition">Customer Reviews</a>
+            <p href="#reviews" className="hover:text-gray-300 transition">Customer Reviews</p>
           </li>
           <li>
             <p
@@ -45,8 +45,8 @@ const HomePage = ({onVerifyClick}) => {
       {/* Mobile Dropdown */}
       {isOpen && (
         <div className="md:hidden bg-black px-6 pb-4 space-y-4">
-          <a href="#home" className="block text-white hover:text-gray-300">Home</a>
-          <a href="#reviews" className="block text-white hover:text-gray-300">Customer Reviews</a>
+          <p  className="block text-white hover:text-gray-300">Home</p>
+          <p onClick={onVerifyClick2} href="#reviews" className="block text-white hover:text-gray-300">Customer Reviews</p>
           <p
             onClick={onVerifyClick}
             className="block bg-white text-black px-4 py-2 rounded-md font-bold text-center"
