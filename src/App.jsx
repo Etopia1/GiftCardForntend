@@ -14,19 +14,21 @@ function App() {
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
   const scrollToForm2 = () => {
     formRef2.current?.scrollIntoView({ behavior: "smooth" });
   };
+ 
 
   return (
     <div className="flex flex-col w-full">
-      <HomePage onVerifyClick2={scrollToForm2} onVerifyClick={scrollToForm}  />
+      <HomePage  onVerifyClick2={scrollToForm2} onVerifyClick={scrollToForm}   />
       <FirstPage onVerifyClick={scrollToForm} /> {/* pass the scroll function */}
       <SecondPage />
       <Formpage refProp={formRef} /> {/* pass the ref */}
       <ThirdPage onVerifyClick={scrollToForm}/>
 	  <ReviewSection refProp={formRef2}/>
-	  <Footer/>
+	  <Footer onVerifyClick2={scrollToForm2} />
     </div>
   );
 }

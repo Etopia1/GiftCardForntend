@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer = () => {
+const Footer = ({onVerifyClick2}) => {
   return (
     <footer className="w-full bg-[#1e293b] text-white py-10 px-4">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
@@ -11,14 +11,13 @@ const Footer = () => {
           </p>
         </div>
         <div className="flex flex-col sm:flex-row gap-6 text-sm">
-          <a href="#" className="hover:text-gray-400">Home</a>
-          <a href="#" className="hover:text-gray-400">About</a>
-          <a href="#" className="hover:text-gray-400">Services</a>
-          <a href="#" className="hover:text-gray-400">Contact</a>
+          <p  className="hover:text-gray-400">Home</p>
+          <p onClick={onVerifyClick2}  className="hover:text-gray-400">Customer Review</p>
+          
         </div>
       </div>
       <div className="text-center text-xs text-gray-500 mt-6">
-        © {new Date().getFullYear()} GiftlyCheck. All rights reserved.
+        © {new Date().getFullYear()} Giftify. All rights reserved.
       </div>
     </footer>
   );

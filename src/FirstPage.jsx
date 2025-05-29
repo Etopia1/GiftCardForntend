@@ -62,12 +62,19 @@ function FirstPage({ onVerifyClick }) {
   }, []);
 
   return (
+    // <div
+    //   className="w-full min-h-screen bg-cover bg-center relative flex flex-col md:flex-row items-center justify-center px-4 py-8"
+    //   style={{
+    //     backgroundImage: `url("https://i.pinimg.com/736x/96/bc/7d/96bc7d086c32610cecc7f0711fcff614.jpg")`
+    //   }}
+    // >
     <div
-      className="w-full min-h-screen bg-cover bg-center relative flex flex-col md:flex-row items-center justify-center px-4 py-8"
-      style={{
-        backgroundImage: `url("https://i.pinimg.com/736x/96/bc/7d/96bc7d086c32610cecc7f0711fcff614.jpg")`
-      }}
-    >
+  className="w-full min-h-screen pt-[80px] bg-cover bg-center relative flex flex-col md:flex-row items-center justify-center px-4 py-8"
+  style={{
+    backgroundImage: `url("https://i.pinimg.com/736x/96/bc/7d/96bc7d086c32610cecc7f0711fcff614.jpg")`
+  }}
+>
+
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-blue-900 to-black opacity-70 z-0" />
 
